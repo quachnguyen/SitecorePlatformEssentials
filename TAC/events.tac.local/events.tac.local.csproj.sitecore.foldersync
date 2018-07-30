@@ -1,0 +1,5 @@
+﻿<Project>
+  <FolderSync SynchronizeProjectOutputFolderOnBuild="False">
+    <Folder SourceFolder="Views\" DestinationFolder="Views\" Mode="Mirror" Pattern="*.*" />
+  </FolderSync>
+</Project>

@@ -200,6 +200,7 @@
     <Content Include="Fonts\open-sans-v13-latin-regular.ttf" />
     <Content Include="Fonts\open-sans-v13-latin-regular.woff" />
     <Content Include="Fonts\open-sans-v13-latin-regular.woff2" />
+    <None Include="App_Config\Include\TAC\Events\events.site.config" />
     <None Include="Properties\PublishProfiles\TAC.pubxml" />
     <Content Include="Images\carousel-climbing.jpg" />
     <Content Include="Images\carousel-cycling.jpg" />
@@ -245,6 +246,8 @@
     <Content Include="Views\TAC\Events\Layouts\Two-Column.cshtml" />
     <Content Include="Views\TAC\Events\Layouts\One-Column.cshtml" />
     <Content Include="Views\TAC\Events\Layouts\HomeContent.cshtml" />
+    <Content Include="Views\TAC\Events\Layouts\FeatureRow.cshtml" />
+    <Content Include="Views\TAC\Events\Layouts\FeatureEvent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
