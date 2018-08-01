@@ -1,0 +1,62 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+
+@model Sitecore.Data.Items.Item
+
+@if (Model != null)
+{
+    <div id="carousel_1" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel_1" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel_1" data-slide-to="1" class=""></li>
+            <li data-target="#carousel_1" data-slide-to="2" class=""></li>
+            <li data-target="#carousel_1" data-slide-to="3" class=""></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+
+            @{
+                var heroSlider = new Sitecore.Data.Fields.MultilistField(Model.Fields["Hero Images"]);
+                if (heroSlider != null)
+                {
+                    var silders = heroSlider.GetItems();
+                    if (silders != null)
+                    {
+                        int i =1;
+                        foreach (var silder in silders)
+                        {
+                            var silderItem = (Sitecore.Data.Items.MediaItem)silder;
+
+                            var imageUrl = Sitecore.Resources.Media.MediaManager.GetMediaUrl(silderItem);
+
+                            <div class="item @(i == 1? "active": "")">
+                                
+                                <div class="jumbotron jumbotron-xl bg-media" style="background-image: url(@imageUrl)">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h1>Climbing</h1>
+                                                <p class="lead">Up for challenge? See our climbing events.</p>
+                                                <a class="btn btn-hollow btn-lg" href="Event-List.html">Read more</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            i++;
+                        }
+                    }
+                }
+            }
+
+        </div>
+        <a class="left carousel-control" href="#carousel_1" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel_1" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+}
