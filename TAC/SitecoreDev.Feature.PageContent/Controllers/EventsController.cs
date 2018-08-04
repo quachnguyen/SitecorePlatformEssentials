@@ -32,8 +32,9 @@ namespace SitecoreDev.Feature.PageContent.Controllers
                             var dateTimeField = (Sitecore.Data.Fields.DateField)i.Fields["StartDate"];
                             eventListViewModel.Events.Add(new EventList
                             {
-                                EventDate = i.Fields["StartDate"] == null ? DateTime.Now : Sitecore.DateUtil.IsoDateToDateTime(dateTimeField.Value),
-                                EventTitle = i.Fields["ContentHeading"].Value
+                                EventTitle = i.Fields["ContentHeading"].Value,
+                                EventUrl = Sitecore.Links.LinkManager.GetItemUrl(i, new Sitecore.Links.UrlOptions { UseDisplayName = true }),
+                                EventDate = i.Fields["StartDate"] == null ? DateTime.Now : Sitecore.DateUtil.IsoDateToDateTime(dateTimeField.Value)
                             });
                         }
                     }

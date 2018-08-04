@@ -1,8 +1,13 @@
 ﻿@model SitecoreDev.Feature.PageContent.Models.EventListViewModel
 
+@{ 
+    var cssClassItem = Sitecore.Mvc.Presentation.RenderingContext.Current.Rendering.Parameters["CssClass"];
+    var cssClass = Sitecore.Context.Database.GetItem(cssClassItem);
+}
+
 @if (Model.HasEvents)
 {
-    <div class="well bg-primary">
+    <div class="well @cssClass.Name">
         <h5 class="text-uppercase">Events</h5>
         <ul class="media-list">
 
@@ -12,7 +17,7 @@
                     <div class="media-body">
                         @item.EventDate.ToString("MMM dd, yyyyy")
                         <h4 class="media-heading">
-                            <a href="Event-Detail.html">@item.EventTitle</a>
+                            <a href="@item.EventUrl">@item.EventTitle</a>
                         </h4>
                     </div>
                 </li>
